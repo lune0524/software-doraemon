@@ -13,7 +13,7 @@ def light(action, state, timeout=14400):  #입실,퇴실,자동소등,자동소�
         if not light_on:  # 불이 꺼져 있으면 켬
             light_on = True
             print("불이 켜졌습니다. 환영합니다")
-            print(f"{student_name}({student_id})님이 들어왔습니다. 현재 인원: {current_people}")
+            print(f"입실 완료.현재 인원: {current_people}")
 
     elif action == "out":
         if current_people > 0:
@@ -34,7 +34,8 @@ def light(action, state, timeout=14400):  #입실,퇴실,자동소등,자동소�
         if light_on and current_time - last_activity_time > timeout:
             light_on = False
             print("오랜 시간 동안 출입이 없어 불이 자동으로 꺼졌습니다.")
-#@@check는 마지막 사람 시간 체크해주는거라 변경 불가/else삭제완료
+#@@check는 마지막 사람 시간 체크해주는거라 변경 불가
+    else:
         print("잘못된 동작입니다. 'in', 'out', 'check' 중 하나를 선택하세요.")
     # 현재 상태 출력
     return {
