@@ -1,7 +1,8 @@
 import time
+import computer_test_02_dayoung
 
 def wireless_charging():
-    print("\n전자기기를 올려주시겠습니까? (YES/NO)")
+    print("\n전자기기를 올려주시겠습니까? (Y/N)")
     answer = input().strip().upper()
     
     if answer == "Y":
@@ -12,7 +13,7 @@ def wireless_charging():
             battery_level += 10
             if battery_level > 100:
                 battery_level = 100  # 배터리 최대치는 100%
-            print(f"충전 중... 현재 배터리: {battery_level}%")
+            print("충전 중... 현재 배터리: ", battery_level,"%")
         print("충전이 완료되었습니다!")
     elif answer == "NO":
         print("충전을 하지 않습니다.")
