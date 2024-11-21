@@ -6,7 +6,7 @@ def smell():
     return smell_level
 
 def smell_set():
-    smell_level = smell()  # 환기필요도 생성
+    smell_level = smell()  # 환기필요도 생성함
     print('환기 필요도: ', smell_level)
     # 환기필요도가 일정 수준(50) 이상일 때
     if smell_level > 50:
