@@ -33,7 +33,6 @@ def choose_seat():
                 print(choice, "티비가 켜집니다! 현재 인원:", key_seats[choice], "/", seats[choice])
             else:
                 print(choice, "는 이미 자리가 가득 찼습니다. 다른 조를 선택해 주세요.\n")
-            break
         elif choice == "컴퓨터자리" or choice == "컴퓨터" or choice == "컴퓨터 자리":
             print("TV와 컴퓨터 전원이 켜집니다.")
             break
@@ -41,5 +40,5 @@ def choose_seat():
             print("잘못된 선택입니다. 다시 선택해 주세요.\n")
 
 # 함수 호출
-while True:
-    choose_seat()
+choose_seat() # 종료 신호가 반환되면 루프를 종
+    
