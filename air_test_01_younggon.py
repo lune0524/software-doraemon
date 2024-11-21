@@ -1,12 +1,7 @@
 import random
 
-
-def temperature():
-    return random.uniform(0, 40)
-
-
 def control():
-    current_temp = temperature()
+    current_temp = random.uniform(0, 40)
    
     print("현재 온도: ", current_temp)
 
