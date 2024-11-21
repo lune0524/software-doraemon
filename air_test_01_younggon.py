@@ -5,7 +5,7 @@ def temperature():
     return random.uniform(0, 40)
 
 
-def control_temperature():
+def control():
     current_temp = temperature()
    
     print("현재 온도: ", current_temp)
