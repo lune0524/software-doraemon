@@ -1,5 +1,5 @@
 import time
-import computer_test_02_dayoung
+import da.computer_test_02_dayoung as computer_test_02_dayoung
 
 def wireless_charging():
     print("\n전자기기를 올려주시겠습니까? (Y/N)")
