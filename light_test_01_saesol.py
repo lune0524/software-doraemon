@@ -1,34 +1,54 @@
 import time
 
-# 천장등 상태와 인원수를 관리하는 변수
-light_on = False                   #천장등 상태를 나타내는 변수
-current_people = 0                           #현재 과방에 있는 사람수를 저장하는 변수
-last_activity_time = time.time()            # 마지막으로 사람이 출입한 시간을 기록
-
-def ceiling_light(action, student_id=None, student_name=None, timeout=14400):  #입실,퇴실,자동소등/입,퇴실 학생 학번,이름(선택사항),자동소등 기본값
-
-    global light_on, current_people, last_activity_time #함수내부에서 전역변수를 수정하기 위해 사용
-
+#@@학생 리스트 관리는 불이랑 거리가 너무 멀어지는것 같아서 아예 삭제
+def light(action, state, timeout=14400):  #입실,퇴실,자동소등,자동소등 기본값
+#@@라이트로 변경완료
+    light_on = state["light_on"]
+    current_people = state["current_people"]
+    last_activity_time = state["last_activity_time"]
+#@@글로벌삭제 
     if action == "in":
-        # 입실 처리 작성 예정
-        pass
+        current_people += 1
+        last_activity_time = time.time()
+        if not light_on:  # 불이 꺼져 있으면 켬
+            light_on = True
+            print("불이 켜졌습니다. 환영합니다")
+            print(f"입실 완료.현재 인원: {current_people}")
 
     elif action == "out":
-        # 퇴실 처리 작성 예정
-        pass
+        if current_people > 0:
+            current_people -= 1
+            last_activity_time = time.time()
+            print(f"퇴실완료. 현재 인원: {current_people}")
+        else:
+            print("과방에 아무도 없습니다.")
+        
+        # 인원이 0명이면 불 끔
+        if current_people == 0 and light_on:
+            light_on = False
+            print("불이 꺼졌습니다.")
+
 
     elif action == "check":
-        # 사람이 없을 경우 자동 소등 처리 작성 예정
-        pass
-
+        current_time = time.time()
+        if light_on and current_time - last_activity_time > timeout:
+            light_on = False
+            print("오랜 시간 동안 출입이 없어 불이 자동으로 꺼졌습니다.")
+#@@check는 마지막 사람 시간 체크해주는거라 변경 불가
     else:
         print("잘못된 동작입니다. 'in', 'out', 'check' 중 하나를 선택하세요.")
-
     # 현재 상태 출력
     return {
-        "light_on": light_on,  #불이 켜져있으면 true 아니면 false
-        "current_people": current_people      #과방 안의 현재 인원수
+        "light_on": light_on,
+        "current_people": current_people,
+        "last_activity_time": last_activity_time,
     }
 
-
+state = {
+    "light_on": False,
+    "current_people": 0,
+    "last_activity_time": time.time(),
+}
+#@@ out: 특정 학생의 퇴실.
+#@@ check: 과방 전체의 상태 점검 후, 자동 소등.
 #궁금한거 있으면 물어보슈
