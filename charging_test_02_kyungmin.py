@@ -7,7 +7,7 @@ def charging():
     
     if answer == "Y":
         print("충전을 시작합니다.")
-        battery = 0  # 초기 배터리 잔량
+        battery = 0  # 초기 배터리 잔량임
         while battery < 100:
             time.sleep(1)  # 1초에 10분씩
             battery += 10
