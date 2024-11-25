@@ -7,7 +7,7 @@ BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 def temperature():
     """
     특정 도시의 현재 온도를 OpenWeatherMap API에서 가져옵니다.
-    city에는 도시 이름을 영어로 입력
+    city에는 도시 이름을 영어로 입력해주세요. 철자 정확하게
     """
     while True:
         city = input("도시 이름을 입력하세요: ")
@@ -41,6 +41,6 @@ def stove():
         print("현재 온도가 20도로 맞춰집니다. 난방기가 꺼집니다.")
     else:
         print("현재 온도가", temp, "도 이므로 적정 온도입니다.")
-
+        
 air()
 stove()
