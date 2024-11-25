@@ -1,7 +1,7 @@
 import requests
 import time
 
-API_KEY = "64f6a9776012addf90ba6752fb5288f9"
+API_KEY = "MY KEY"
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 def temperature():
