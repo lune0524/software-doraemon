@@ -1,27 +1,11 @@
-import requests
+import random
 import time
 
-API_KEY = "64f6a9776012addf90ba6752fb5288f9"
-BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
-
 def temperature():
-    """
-    특정 도시의 현재 온도를 OpenWeatherMap API에서 가져옵니다.
-    city에는 도시 이름을 영어로 입력
-    """
-    while True:
-        city = input("도시 이름을 입력하세요: ")
-        url = f"{BASE_URL}?q={city}&appid={API_KEY}&units=metric"
-        response = requests.get(url, verify=False)
-        data = response.json()
+    temp = random.randint(0, 40)
+    print("현재 온도는", temp, "도 입니다.")
+    return temp
 
-        if response.status_code == 200:
-            current_temp = data['main']['temp']
-            print("현재", city, "의 온도는", current_temp, "도 입니다.")
-            return current_temp
-        else:
-            print("온도를 가져올 수 없습니다. 도시 이름을 확인해 주세요.")
-        
 def air():
     temp = temperature()
     if temp > 26:
