@@ -45,12 +45,7 @@ def air_control():
         if air_person in ["Y", "N"]:
             break
         print("잘못된 입력입니다. Y 또는 N으로 답해주세요.")
-
-    if air_person == "Y":
-        print("냉난방기를 켭니다.")
-    else:
-        print("냉난방기를 끕니다.")
-        
+        return air_person
 
 # 테스트 실행
 if __name__ == "__main__":

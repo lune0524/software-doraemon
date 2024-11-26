@@ -41,5 +41,4 @@ def stove():
     else:
         print("현재 온도가", temp, "도 이므로 적정 온도입니다.")
         
-air()
-stove()
+temperature()
