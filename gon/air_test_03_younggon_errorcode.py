@@ -19,7 +19,7 @@ def temperature():
         print("현재", city, "의 온도는", current_temp, "도 입니다.")
         return current_temp
     except:
-        print("에러가 발생했습니다.")
+        print("에러가 발생했습니다. KEY 또는 도시이름이 정확한지 확인해 주세요.")
         
 def air():
     temp = temperature()
