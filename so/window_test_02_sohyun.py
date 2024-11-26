@@ -38,4 +38,4 @@ def smell_set():
 def smell_time():
     # 시간별 수치 변화를 나타내는 함수
     smell_level = smell()
-    pass#
+    pass
