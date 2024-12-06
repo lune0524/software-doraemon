@@ -18,7 +18,7 @@ key_seats = {key: 0 for key in seats}
 tv_status = {key: False for key in seats}
 
 # TV 종료 타이머
-def auto_turn_off(seat):
+def auto_tv_off(seat):
     print(seat,"의 TV가 5초 뒤에 꺼질 예정입니다...")
     time.sleep(5)  # 테스트용으로 5초 설정. 실제 사용 시 더 긴 시간으로 조정 가능.
     if key_seats[seat] == 0:  # 사람이 없을 경우에만 꺼짐
@@ -55,7 +55,7 @@ def choose_seat():
                 key_seats[choice] -= 1
                 print(f"{choice} TV 상태: 인원 {key_seats[choice]}")
                 if key_seats[choice] == 0:  # 사람이 없으면 타이머 실행
-                    threading.Thread(target=auto_turn_off, args=(choice,)).start()
+                    threading.Thread(target=auto_tv_off, args=(choice,)).start()
         elif choice in ["컴퓨터자리", "컴퓨터", "컴퓨터 자리"]:
             print("TV와 컴퓨터 전원이 켜집니다.")
             break
