@@ -61,12 +61,5 @@ def stove():
         stove_status = "꺼짐"
 
 if __name__ == "__main__":
-    temp = temperature()
-
-    if temp:
-        if temp > 26:
-            air()
-        elif temp < 18:
-            stove()
-        else:
-            print("현재 온도는 적정 수준입니다. 냉방기와 난방기를 작동하지 않습니다.")
+    air()
+    stove()
