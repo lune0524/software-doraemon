@@ -1,4 +1,6 @@
-import requests # HTTP 요청을 보내는 라이브러리, 외부 API와 통신에 사용합니다.
+import requests 
+# HTTP 요청을 보내는 라이브러리, 외부 API와 통신에 사용합니다.
+# requests가 작동하지 않을경우 pip install --upgrade requests 를 터미널에 입력한다면 작동 될것 입니다.
 import time
 
 API_KEY = "64f6a9776012addf90ba6752fb5288f9"
@@ -61,5 +63,12 @@ def stove():
 # temperature()
 
 if __name__ == "__main__":
-    air()
-    stove()
+    temp = temperature()
+
+    if temp:
+        if temp > 26:
+            air()
+        elif temp < 18:
+            stove()
+        else:
+            print("현재 온도는 적정 수준입니다. 냉방기와 난방기를 작동하지 않습니다.")
