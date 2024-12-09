@@ -2,7 +2,7 @@ import random
 import time
 
 def air_control():
-    """냉난방기 작동 여부를 묻는 함수"""
+    """냉난방기 작동 여부를 묻는 함수."""
     while True:
         air_person = input("냉난방기를 켜겠습니까? (Y/N): ").strip().upper()
         if air_person in ["Y", "N"]:
