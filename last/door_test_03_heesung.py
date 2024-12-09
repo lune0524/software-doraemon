@@ -19,7 +19,7 @@ def check_student():
 
     # Step 2: 이름이 리스트에 해당하는지 확인 
     if student_name in student:  #리스트 안에 있는 이름이 아니면 인공지능학과로 간주 하고 다음으로 학번 입력
-        print(f"{student_name}님, 인공지능학과 확인 완료! 문이 열립니다.") # 학생 검사
+        # print(f"{student_name}님, 인공지능학과 확인 완료! 문이 열립니다.") # 학생 검사
         
         student_number = int(input("학번을 입력 하세요"))
     

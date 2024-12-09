@@ -63,4 +63,7 @@ def choose_seat():
             print("잘못된 선택입니다. 다시 선택해 주세요.\n")
 
 # 함수 호출
-choose_seat()
+
+if __name__ == "__main__":
+    choose_seat()
+

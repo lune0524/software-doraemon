@@ -28,4 +28,6 @@ def charging():
         print("잘못된 입력입니다. 충전 프로세스를 종료합니다.")
 
 # 메인 실행 로직
-charging()
+if __name__ == "__main__":
+    charging()
+
