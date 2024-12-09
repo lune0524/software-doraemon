@@ -58,4 +58,8 @@ def stove():
         print(f"현재 온도가 {temp}°C 이므로 적정 온도입니다.")
         stove_status = "꺼짐"
         
-temperature()
+# temperature()
+
+if __name__ == "__main__":
+    air()
+    stove()
