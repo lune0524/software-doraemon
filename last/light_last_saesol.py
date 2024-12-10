@@ -53,8 +53,22 @@ def light(action, state, timeout=14400):  #입실,퇴실,자동소등,자동소�
         "last_activity_time": last_activity_time,
     }
 
-state = {
-    "light_on": False,
-    "current_people": 0,
-    "last_activity_time": time.time(),
-}
+
+if __name__ == "__main__":
+    state = {
+        "light_on": False,
+        "current_people": 0,
+        "last_activity_time": time.time(),
+    }
+
+    # 테스트 실행
+    print("=== 테스트 시작 ===")
+    state = light("in", state)  # 입실
+    time.sleep(2)               # 2초 대기
+    state = light("in", state)  # 추가 입실
+    state = light("out", state) # 퇴실
+    time.sleep(2)               # 2초 대기
+    state = light("check", state, timeout=1)  # 자동 소등 확인
+    state = light("out", state) # 추가 퇴실
+    state = light("check", state, timeout=1)  # 자동 소등 확인
+    print("=== 테스트 종료 ===")
