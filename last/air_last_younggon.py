@@ -1,4 +1,6 @@
-import requests # HTTP 요청을 보내는 라이브러리, 외부 API와 통신에 사용합니다.
+import requests 
+# HTTP 요청을 보내는 라이브러리, 외부 API와 통신에 사용합니다.
+# requests가 작동하지 않을경우 pip install --upgrade requests 를 터미널에 입력한다면 작동 될것 입니다.
 import time
 
 API_KEY = "64f6a9776012addf90ba6752fb5288f9"
@@ -26,12 +28,13 @@ def temperature():
     except:
         print("에러가 발생했습니다. API_KEY가 정확한지 확인해 주세요.")
         
-def air():
+def air_stove():
     """
-    냉방기 함수입니다.
+    냉방기와 난방기를 제어하는 통합 함수입니다.
     """
-    global air_status
+    global air_status, stove_status
     temp = temperature()
+
     if temp > 26:
         print(f"현재 온도가 {temp}°C 입니다. 냉방기가 작동합니다.")
         air_status = "켜짐"
@@ -39,23 +42,17 @@ def air():
         time.sleep(10)
         print("현재 온도가 24°C로 맞춰집니다. 냉방기가 꺼집니다.")
         air_status = "꺼짐"
-    else:
-        print(f"현재 온도가 {temp}°C 이므로 적정 온도입니다.")
 
-def stove():
-    """
-    난방기 함수입니다.
-    """
-    global stove_status
-    temp = temperature()
-    if temp < 18:
+    elif temp < 18:
         print(f"현재 온도가 {temp}°C 입니다. 난방기가 작동합니다.")
         stove_status = "켜짐"
         print("창문이 닫힙니다.")
         time.sleep(10)
         print("현재 온도가 20°C로 맞춰집니다. 난방기가 꺼집니다.")
+        stove_status = "꺼짐"
+
     else:
         print(f"현재 온도가 {temp}°C 이므로 적정 온도입니다.")
-        stove_status = "꺼짐"
-        
-temperature()
+
+if __name__ == "__main__":
+    air_stove()
