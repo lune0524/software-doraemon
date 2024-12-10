@@ -36,17 +36,17 @@ def air_stove():
     temp = temperature()
 
     if temp > 26:
-        print(f"현재 온도가 {temp}°C 입니다. 냉방기가 작동합니다.")
+        print("냉방기 작동을 시작합니다.")
         air_status = "켜짐"
-        print("창문이 닫힙니다.")
+        print("냉방기 작동중")
         time.sleep(10)
         print("현재 온도가 24°C로 맞춰집니다. 냉방기가 꺼집니다.")
         air_status = "꺼짐"
 
     elif temp < 18:
-        print(f"현재 온도가 {temp}°C 입니다. 난방기가 작동합니다.")
+        print("난방기가 작동을 시작합니다.")
         stove_status = "켜짐"
-        print("창문이 닫힙니다.")
+        print("난방기 작동중")
         time.sleep(10)
         print("현재 온도가 20°C로 맞춰집니다. 난방기가 꺼집니다.")
         stove_status = "꺼짐"
