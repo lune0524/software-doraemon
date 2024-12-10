@@ -23,6 +23,7 @@ def smell():
 def decrease_smell(smell_level):
     """환기 필요도 수치를 감소시키는 함수"""
     print(f"초기 환기 필요도: {smell_level}")
+
     while smell_level > 30:  # 환기 필s요도가 30 이하가 될 때까지 감소
         time.sleep(1)  # 1초 = 1분으로 간주
         decrease = random.randint(5, 15)  # 5~15 사이의 임의 값만큼 감소
@@ -36,11 +37,15 @@ def decrease_smell(smell_level):
 def smell_set():
     """환기 필요도 수치를 판단하고 창문 열기 및 냉난방기 작동을 제어하는 함수"""
     smell_level = smell()  # 환기 필요도 생성
-    print(f"환기 필요도: {smell_level}")
+
+    if smell_level > 50:
+        print(f"환기 필요도: {smell_level} (환기가 필요합니다.)")
+    else:
+        print(f"환기 필요도: {smell_level} (환기가 필요하지 않습니다.)")
 
     air = air_control()  # 냉난방기 작동 여부 확인
     if air == "Y":
-        return
+        return air
     
     if smell_level > 50:  # 환기 필요도가 50 이상일 때
         # 냉난방기를 작동하지 않는 경우 창문을 열지 결정
