@@ -1,4 +1,4 @@
-from window_test_05_sohyun import *
+from window_last_sohyun import *
 
 import requests # HTTP 요청을 보내는 라이브러리, 외부 API와 통신에 사용합니다.
 import time
