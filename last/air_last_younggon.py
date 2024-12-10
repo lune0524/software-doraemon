@@ -30,7 +30,7 @@ def temperature():
         
 def air_stove():
     """
-    냉방기와 난방기를 제어하는 통합 함수입니다.
+    냉방기와 난방기 함수입니다.
     """
     global air_status, stove_status
     temp = temperature()
