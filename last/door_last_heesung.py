@@ -42,18 +42,22 @@ def access_control():
                 entry = input("들어오시겠습니까? (Y/N): ").strip().upper()
                 if entry == "Y":
                     print("출석이 인정되었습니다. 오늘도 좋은 하루 보내세요!")
-                    return
+                    
                 elif entry == "N":
                     print("출석이 인정되지 않았습니다. 다음에 다시 방문해주세요.")
-                    return
+                    
                 else:
                     print("잘못된 입력입니다. Y 또는 N 으로 입력해주세요.")
+                return entry
         else:
             print(f"{student_name}님, 학번 확인 실패! 문이 열리지 않습니다.")
             print("시스템에 정보가 없습니다. 관리자를 통해 추가해주세요.")
     
     else:
         print("잘못된 입력입니다. '교수' 또는 '학생'으로 입력해주세요.")
+    return student_input
 
 # 함수 실행
+if __name__ == "__main__":
 access_control()
+
