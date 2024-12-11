@@ -22,7 +22,8 @@ def access_control():
             print(f"{professors_name} 교수님, 환영합니다! 문이 열립니다.")
         else:
             print(f"{professors_name}님은 권한이 없습니다. 출입이 제한됩니다.")
-    
+
+        
     elif user_type == "학생":
         # 학생 처리
         student_input = input("이름과 학번을 입력하세요 (예: 홍길동 202411001): ").strip()
@@ -52,12 +53,12 @@ def access_control():
         else:
             print(f"{student_name}님, 학번 확인 실패! 문이 열리지 않습니다.")
             print("시스템에 정보가 없습니다. 관리자를 통해 추가해주세요.")
-    
+        return student_input
     else:
         print("잘못된 입력입니다. '교수' 또는 '학생'으로 입력해주세요.")
-    return student_input
+    return user_type
 
 # 함수 실행
 if __name__ == "__main__":
-access_control()
+ access_control()
 
