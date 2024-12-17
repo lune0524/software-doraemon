@@ -1,18 +1,17 @@
 # main.py
 import threading
 import time
-from door_test_03_heesung import check_professors, check_student
-from light_test_02_saesol import light, state
-from window_test_04_sohyun import smell_set
-from air_test_04_younggon import air, stove
-from computer_test_04_dayoung import choose_seat
-from charging_test_04_kyungmin import charging
+from door_last_heesung import access_control
+from light_last_saesol import light, state
+from window_last_sohyun import smell_set
+from air_last_younggon import air, stove
+from computer_last_dayoung import choose_seat
+from charging_last_kyungmin import charging
 from turtle_02 import draw_room, open_door, turn_on_tv, sit_down
 
 # 각 기능을 별도로 실행할 함수 정의
 def door_function():
-    check_professors()
-    check_student()
+    access_control()
 
 def light_function():
     print("\n불 상태 관리 시작!")
