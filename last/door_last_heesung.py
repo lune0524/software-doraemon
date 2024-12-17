@@ -1,3 +1,5 @@
+import time
+
 # 교수님 리스트
 professors = ["송주환", "김영수", "이근호", "고선우", "권수태"]
 
@@ -22,8 +24,8 @@ def access_control():
             print(f"{professors_name} 교수님, 환영합니다! 문이 열립니다.")
         else:
             print(f"{professors_name}님은 권한이 없습니다. 출입이 제한됩니다.")
+        return professors_name
 
-        
     elif user_type == "학생":
         # 학생 처리
         student_input = input("이름과 학번을 입력하세요 (예: 홍길동 202411001): ").strip()
@@ -56,7 +58,6 @@ def access_control():
         return student_input
     else:
         print("잘못된 입력입니다. '교수' 또는 '학생'으로 입력해주세요.")
-    return user_type
 
 # 함수 실행
 if __name__ == "__main__":
