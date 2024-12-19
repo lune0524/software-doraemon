@@ -1,13 +1,13 @@
+import time
 import requests 
 # HTTP 요청을 보내는 라이브러리, 외부 API와 통신에 사용합니다.
 # requests가 작동하지 않을경우 pip install --upgrade requests 를 터미널에 입력한다면 작동 될것 입니다.
-import time
 
 API_KEY = "64f6a9776012addf90ba6752fb5288f9"
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 requests.packages.urllib3.disable_warnings()
-# 출력때 생기는 정식 명칭은 Python warning라는 거 없에는 코드
+# SSL인증서 오류 제거 코드
 
 city = "Jeonju"
 air_status = "꺼짐"
