@@ -25,7 +25,7 @@ def access_control():
                     print(f"{professors_name} 교수님, 환영합니다! 문이 열립니다.")
                     # 교수님 입/퇴실 여부 확인
                     while True:
-                        entry = input("들어오시겠습니까? (Y/N/돌아가기/종료): ").strip().upper()
+                        entry = input("들어오시겠습니까? (Y/N/돌아가기): ").strip().upper()
                         if entry == "Y":
                             print("오늘도 좋은 하루 보내세요!")
                             return professors_name, "Y"
@@ -34,11 +34,8 @@ def access_control():
                             return professors_name, "N"
                         elif entry == "돌아가기":
                             return None, "돌아가기"
-                        elif entry == "종료":
-                            print("시스템을 종료합니다.")
-                            return None, "종료"
                         else:
-                            print("잘못된 입력입니다. 'Y', 'N', '돌아가기', '종료' 중 하나를 입력해주세요.")
+                            print("잘못된 입력입니다. 'Y', 'N', '돌아가기' 중 하나를 입력해주세요.")
                 else:
                     print(f"{professors_name}님은 권한이 없습니다. 이름을 다시 입력해주세요.")
 
@@ -55,7 +52,7 @@ def access_control():
                 if student_name in students and students[student_name] == student_number:
                     print(f"{student_name}님, 인공지능학과 확인 완료! 문이 열립니다.")
                     while True:
-                        entry = input("들어오시겠습니까? (Y/N/돌아가기/종료): ").strip().upper()
+                        entry = input("들어오시겠습니까? (Y/N/돌아가기): ").strip().upper()
                         if entry == "Y":
                             print("출석이 인정되었습니다. 오늘도 좋은 하루 보내세요!")
                             return student_name, "Y"
@@ -64,11 +61,8 @@ def access_control():
                             return student_name, "N"
                         elif entry == "돌아가기":
                             return None, "돌아가기"
-                        elif entry == "종료":
-                            print("시스템을 종료합니다.")
-                            return None, "종료"
                         else:
-                            print("잘못된 입력입니다. 'Y', 'N', '돌아가기', '종료' 중 하나를 입력해주세요.")
+                            print("잘못된 입력입니다. 'Y', 'N', '돌아가기' 중 하나를 입력해주세요.")
                 else:
                     print(f"{student_name}님, 학번 확인 실패! 이름과 학번을 다시 입력해주세요.")
                     continue
