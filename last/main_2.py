@@ -1,6 +1,11 @@
 import time
 from door_last_heesung import access_control
 from light_last_saesol import light
+from window_last_sohyun import smell_set
+from air_last_younggon import temperature, air_stove
+from computer_last_dayoung import choose_seat
+from charging_last_kyungmin import charging
+
 def main():
     # 조명 상태 초기화
     state = {
@@ -9,28 +14,32 @@ def main():
         "last_activity_time": time.time(),
     }
     
-    print("=== 출입 관리 및 조명 시스템 ===\n")
-    
+    print("\n--- 출입 권한 확인 ---")
     while True:
-        print("\n--- 출입 권한 확인 중입니다 ---")
-        user_status = access_control()  # 교수님 or 학생 입장 처리
-        
-        if user_status:  # 출입 권한이 확인되었을 때
-            while True:
-                action = input("입실 또는 퇴실을 선택해주세요. (입실/퇴실/종료): ").strip()
-                
-                if action == "입실":
-                    state = light("in", state)  # 입실: current_people +1 및 조명 상태 확인
-                elif action == "퇴실":
-                    state = light("out", state)  # 퇴실: current_people -1 및 조명 상태 확인
-                elif action == "종료":
-                    print("시스템을 종료합니다. 안녕히 가세요!")
-                    return
-                else:
-                    print("잘못된 입력입니다. 'in', 'out', '종료' 중 하나를 입력하세요.")
-        else:
-            print("권한 확인 실패. 시스템을 종료합니다.")
+        # 출입 권한 확인 및 entry 값 받기
+        entry = access_control()  # 교수님 또는 학생 입장 여부 처리
+
+        if entry == "Y":  # 입실
+            state = light("in", state)  # 입실: current_people +1 및 조명 상태 확인
+        elif entry == "N":  # 퇴실
+            state = light("out", state)  # 퇴실: current_people -1 및 조명 상태 확인
+        elif entry == "종료":
+            print("시스템을 종료합니다. 안녕히 가세요!")
             break
+        else:
+            print("잘못된 입력입니다. '입실(Y)', '퇴실(N)', '종료' 중 하나를 입력하세요.")
+    
+    # 온도 확인 및 냄새 설정
+    temperature()
+    a = smell_set()
+    if a == 'Y':
+        air_stove()
+
+    # 현재 사람 수를 기준으로 자리 선택 및 충전
+    people = state["current_people"]
+    for i in range(people):
+        choose_seat()
+        charging()
 
 if __name__ == "__main__":
     main()

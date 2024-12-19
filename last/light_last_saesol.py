@@ -23,6 +23,8 @@ def light(action, state, timeout=14400):  #입실,퇴실,자동소등,자동소�
             light_on = True
             print("불이 켜졌습니다. 환영합니다")
             print(f"입실 완료.현재 인원: {current_people}")
+        else:
+            light_on = 
 
     elif action == "out":
         if current_people > 0:
@@ -51,7 +53,7 @@ def light(action, state, timeout=14400):  #입실,퇴실,자동소등,자동소�
         "light_on": light_on,
         "current_people": current_people,
         "last_activity_time": last_activity_time,
-    }
+    }, current_people
 
 
 if __name__ == "__main__":

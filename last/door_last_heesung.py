@@ -22,20 +22,30 @@ def access_control():
         professors_name = input("이름을 입력하세요: ").strip()
         if professors_name in professors:
             print(f"{professors_name} 교수님, 환영합니다! 문이 열립니다.")
+
+            while True:
+                entry = input("들어오시겠습니까? (Y/N): ").strip().upper()
+                if entry == "Y":
+                    print("오늘도 좋은 하루 보내세요!")
+                    return entry
+                elif entry == "N":
+                    print("다음에 다시 방문해주세요.")
+                    return entry
+                else:
+                    print("잘못된 입력입니다. Y 또는 N 으로 입력해주세요.")
         else:
             print(f"{professors_name}님은 권한이 없습니다. 출입이 제한됩니다.")
-        return professors_name
+            return None
 
     elif user_type == "학생":
         # 학생 처리
         student_input = input("이름과 학번을 입력하세요 (예: 홍길동 202411001): ").strip()
-        
+
         try:
             # 이름과 학번 분리
             student_name, student_number = student_input.split()
         except ValueError:
             print("잘못된 입력 형식입니다. 이름과 학번을 띄어쓰기로 구분하여 입력해주세요.")
-            return
 
         if student_name in students and students[student_name] == student_number:
             print(f"{student_name}님, 인공지능학과 확인 완료! 문이 열립니다.")
@@ -55,10 +65,10 @@ def access_control():
         else:
             print(f"{student_name}님, 학번 확인 실패! 문이 열리지 않습니다.")
             print("시스템에 정보가 없습니다. 관리자를 통해 추가해주세요.")
-        return student_input
+            return None
     else:
         print("잘못된 입력입니다. '교수' 또는 '학생'으로 입력해주세요.")
-
+        return None
 # 함수 실행
 if __name__ == "__main__":
  access_control()
