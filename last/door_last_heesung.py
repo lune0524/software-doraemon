@@ -24,10 +24,10 @@ def access_control():
                 while True:
                     entry = input("들어오시겠습니까? (Y/N/돌아가기/종료): ").strip().upper()
                     if entry == "Y":
-                        print("출석이 인정되었습니다. 오늘도 좋은 하루 보내세요!")
+                        print("오늘도 좋은 하루 보내세요!")
                         return professors_name, "Y"
                     elif entry == "N":
-                        print("출석이 인정되지 않았습니다. 다음에 다시 방문해주세요.")
+                        print("다음에 다시 방문해주세요.")
                         return professors_name, "N"
                     elif entry == "돌아가기":
                         # 교수/학생 단계로 돌아가기

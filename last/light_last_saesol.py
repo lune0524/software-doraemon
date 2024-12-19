@@ -21,23 +21,23 @@ def light(action, state, timeout=14400):  #입실,퇴실,자동소등,자동소�
         last_activity_time = time.time()
         if light_on==False:  # 불이 꺼져 있으면 켬
             light_on = True
-            print("불이 켜졌습니다. 환영합니다")
-            print(f"입실 완료.현재 인원: {current_people}")
+            print("불이 켜졌습니다.")
+            print(f"입실 완료.", end="")
         else:
-            print(f"입실 완료.현재 인원: {current_people}")
+            print(f"입실 완료.", end="")
 
     elif action == "out":
         if current_people > 0:
             current_people -= 1
             last_activity_time = time.time()
-            print(f"퇴실완료. 현재 인원: {current_people}")
+            print(f"퇴실완료.", end="")
         else:
             print("과방에 아무도 없습니다.")
         
         # 인원이 0명이면 불 끔
         if current_people == 0 and light_on:
             light_on = False
-            print("불이 꺼졌습니다.")
+            print("불이 꺼졌습니다.", end="")
 
 
     elif action == "check":

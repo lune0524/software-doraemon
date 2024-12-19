@@ -54,6 +54,7 @@ def choose_seat():
                     tv_status[choice] = True
                     print(f"{choice} TV가 켜졌습니다.")
                 print(f"{choice}에 앉았습니다. 현재 인원: {key_seats[choice]}/{seats[choice]}")
+                break
             else:
                 print(f"{choice}는 이미 자리가 가득 찼습니다. 다른 조를 선택해 주세요.\n")
         elif choice in ["컴퓨터자리", "컴퓨터", "컴퓨터 자리"]:

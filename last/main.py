@@ -17,7 +17,7 @@ def main():
     # 현재 내부에 있는 사람들을 추적할 리스트
     inside_people = []
 
-    print("\n--- 출입 권한 확인 ---")
+    print("\n--- 출입 권한 확인 및 전등 ---")
     while True:
         name, entry = access_control()
 
@@ -51,12 +51,14 @@ def main():
         else:
             print("잘못된 입력입니다. '입실(Y)', '퇴실(N)', '재입력', '돌아가기', '종료' 중 하나를 입력하세요.")
 
+    print("\n--- 냉난방기 및 창문 제어 ---")
     # 온도 확인 및 냄새 설정
     temperature()
     a = smell_set()
     if a == 'Y':
         air_stove()
-
+    
+    print("\n--- 자리선택 및 충전전 ---")
     # 현재 남아있는 사람 수 기준으로 자리 선택 및 충전
     people = len(inside_people)
     for i in range(people):
