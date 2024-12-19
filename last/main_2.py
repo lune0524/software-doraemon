@@ -11,7 +11,7 @@ def main():
     state = {
         "light_on": False,
         "current_people": 0,
-        "last_activity_time": time.time(),
+        "last_activity_time": time.time()
     }
     
     print("\n--- 출입 권한 확인 ---")
@@ -20,9 +20,9 @@ def main():
         entry = access_control()  # 교수님 또는 학생 입장 여부 처리
 
         if entry == "Y":  # 입실
-            state = light("in", state)  # 입실: current_people +1 및 조명 상태 확인
+            state, _ = light("in", state)  # 입실: current_people +1 및 조명 상태 확인
         elif entry == "N":  # 퇴실
-            state = light("out", state)  # 퇴실: current_people -1 및 조명 상태 확인
+            state, _ = light("out", state)  # 퇴실: current_people -1 및 조명 상태 확인
         elif entry == "종료":
             print("시스템을 종료합니다. 안녕히 가세요!")
             break
@@ -40,6 +40,7 @@ def main():
     for i in range(people):
         choose_seat()
         charging()
+
 
 if __name__ == "__main__":
     main()
