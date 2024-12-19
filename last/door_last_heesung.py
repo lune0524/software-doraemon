@@ -14,7 +14,9 @@ def access_control():
     }
 
     while True:
-        user_type = input("교수님이십니까 학생이십니까? (교수/학생): ").strip()
+        user_type = input("교수님이십니까 학생이십니까? (교수/학생/종료): ").strip()
+        if user_type == "종료":
+            return None, "종료"
 
         if user_type == "교수":
             while True:
