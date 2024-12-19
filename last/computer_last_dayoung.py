@@ -27,11 +27,11 @@ def auto_tv_off(seat):
 
 # 자리 선택 함수
 def choose_seat():
-    while True:
-        print("\n자리 배치 안내:")
-        print('1조(6명) | 4조(8명)\n2조(7명) | 5조(9명)\n3조(7명) | 6조(8명)')
-        print("\n4조 바로 앞에 컴퓨터 자리가 있습니다.\n")
+    print("\n자리 배치 안내:")
+    print('1조(6명) | 4조(8명)\n2조(7명) | 5조(9명)\n3조(7명) | 6조(8명)')
+    print("\n4조 바로 앞에 컴퓨터 자리가 있습니다.\n")
 
+    while True:
         # 사용자 선택
         choice = input("모둠 자리(1조, 2조, 3조, 4조, 5조, 6조) 또는 '나가기'를 선택하세요 (종료하려면 '종료' 입력): ")
 
@@ -66,4 +66,3 @@ def choose_seat():
 
 if __name__ == "__main__":
     choose_seat()
-
