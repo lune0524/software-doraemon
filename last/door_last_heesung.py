@@ -40,6 +40,7 @@ def access_control():
 
             else:
                 print(f"{professors_name}님은 권한이 없습니다. 출입이 제한됩니다.")
+                
                 # 권한 없는 경우 다시 교수/학생 선택 단계로
                 continue
 
