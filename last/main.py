@@ -24,8 +24,8 @@ def main():
         if entry == "Y":  # 입실
             if name not in inside_people:
                 inside_people.append(name)
-                state["current_people"] = len(inside_people) - 1
                 state, _ = light("in", state)
+                state["current_people"] = len(inside_people)
                 print(f"현재 인원: {state['current_people']}명 ({inside_people})")
             else:
                 print(f"{name}님은 이미 입실 중입니다.")
@@ -33,8 +33,8 @@ def main():
         elif entry == "N":  # 퇴실
             if name in inside_people:
                 inside_people.remove(name)
-                state["current_people"] = len(inside_people)
                 state, _ = light("out", state)
+                state["current_people"] = len(inside_people)
                 print(f"현재 인원: {state['current_people']}명 ({inside_people})")
             else:
                 print(f"{name}님은 현재 실내에 없습니다. 퇴실할 수 없습니다.")
