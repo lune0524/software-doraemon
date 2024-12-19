@@ -2,7 +2,7 @@ import time
 
 # 교수님 리스트
 def access_control():
-    professors = ["송주환", "김영수", "이근호", "고선우", "권수태","민교수수"]
+    professors = ["송주환", "김영수", "이근호", "고선우", "권수태","민교수"]
     students = {
         "장영곤": "202411246",
         "이경민": "202392007",
@@ -16,7 +16,7 @@ def access_control():
     while True:
         user_type = input("교수님이십니까 학생이십니까? (교수님님/학생/종료): ").strip()
 
-        if user_type == "교수님":
+        if user_type == "교수":
             professors_name = input("이름을 입력하세요: ").strip()
             if professors_name in professors:
                 print(f"{professors_name} 교수님, 환영합니다! 문이 열립니다.")
