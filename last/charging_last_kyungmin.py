@@ -8,12 +8,12 @@ def battery_level():
 
 def charging():
     while True:  # 무한 반복하여 올바른 입력을 받을 때까지 계속 묻기
+        level = battery_level()
+        print(f"현재 배터리 잔량은 {level}%입니다.")
         answer = input("\n전자기기를 올려주시겠습니까? (Y/N):").strip().upper()
-        
         if answer == "Y":
             # 초기 배터리 잔량 생성
-            level = battery_level()
-            print(f"현재 배터리 잔량은 {level}%입니다.")
+            
             
             print("충전을 시작합니다.")
             while level < 100:
