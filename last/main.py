@@ -7,7 +7,7 @@ from computer_last_dayoung import choose_seat
 from charging_last_kyungmin import charging
 
 def main():
-    # 조명 상태 초기화
+    # 조명 상태 초기 지정
     state = {
         "light_on": False,
         "current_people": 0,
@@ -39,7 +39,7 @@ def main():
             else:
                 print(f"{name}님은 현재 실내에 없습니다. 퇴실할 수 없습니다.")
 
-        elif entry == "돌아가기":
+        elif entry == "재입력":
             # 입실도 퇴실도 하지 않고 돌아가기
             print("아무 작업도 하지 않고 이전 단계로 돌아갑니다.")
             continue
@@ -49,7 +49,7 @@ def main():
             break
 
         else:
-            print("잘못된 입력입니다. '입실(Y)', '퇴실(N)', '돌아가기', '종료' 중 하나를 입력하세요.")
+            print("잘못된 입력입니다. '입실(Y)', '퇴실(N)', '재입력', '종료' 중 하나를 입력하세요.")
 
     print("\n--- 냉난방기 및 창문 제어 ---")
     # 온도 확인 및 냄새 설정
@@ -58,7 +58,7 @@ def main():
     if a == 'Y':
         air_stove()
     
-    print("\n--- 자리선택 및 충전전 ---")
+    print("\n--- 자리선택 및 충전 ---")
     # 현재 남아있는 사람 수 기준으로 자리 선택 및 충전
     people = len(inside_people)
     for i in range(people):
